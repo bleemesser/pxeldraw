@@ -2,3 +2,4 @@
 /backend/node_modules/
 *.log
 /frontend/build
+.DS_Store
