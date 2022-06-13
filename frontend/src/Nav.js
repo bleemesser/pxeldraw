@@ -26,4 +26,5 @@ class Nav extends React.Component {
     )
     }
 }
+
 export default Nav;

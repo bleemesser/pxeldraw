@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './broken.css';
+import './index.css';
 import App from './App';
 import Draw from './Draw';
 import Login from './Login';

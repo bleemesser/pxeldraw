@@ -2,38 +2,40 @@ import React from "react";
 import Nav from './Nav';
 import axios from "axios";
 import * as ReactBootStrap from 'react-bootstrap';
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.loggedInUser = localStorage.getItem("loggedInUser").replace(/['"]+/g, '');
-    this.state = {
-      isFetching:false,
-      data:[],
-    }
 
-  }
-  fetchImages() {
-    axios.get(`http://localhost:4000/findimages`, {params:{owner:this.loggedInUser}})  
-    .then((res) => {
-      console.log(res.data)
-      this.setState({data:res.data});
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-  }
-  componentDidMount() {
-    this.fetchImages();
-    
-  }
+class App extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        isFetching: false,
+        data: [],
+      }
+
+    }
+    fetchImages() {
+      axios.get(`http://localhost:4000/findimages`, {
+          params: {
+            owner: this.loggedInUser
+          }
+        })
+        .then((res) => {
+          console.log(res.data)
+          this.setState({
+            data: res.data
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+    }
+    componentDidMount() {
+      this.fetchImages();
+
+    }
   render() {
-    //console.log(this.userImages);
     return (
       <div>
         <Nav/>
-        {/* <ul>
-
-        </ul> */}
         <ReactBootStrap.Table striped bordered hover>
           <thead>
             <tr>
