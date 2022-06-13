@@ -6,6 +6,7 @@ import * as ReactBootStrap from 'react-bootstrap';
 class App extends React.Component {
     constructor(props) {
       super(props)
+      this.loggedInUser = localStorage.getItem("loggedInUser").replace(/['"]+/g, '');
       this.state = {
         isFetching: false,
         data: [],
